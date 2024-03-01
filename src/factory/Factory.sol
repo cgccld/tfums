@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.24;
+pragma solidity ^0.8.20;
 
 import {IFactory} from "./IFactory.sol";
 import {CREATE3} from "solmate/utils/CREATE3.sol";
