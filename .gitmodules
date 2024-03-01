@@ -10,3 +10,6 @@
 [submodule "lib/minimal-deployment-kit"]
 	path = lib/minimal-deployment-kit
 	url = https://github.com/tasibii/minimal-deployment-kit
+[submodule "lib/solmate"]
+	path = lib/solmate
+	url = https://github.com/transmissions11/solmate
