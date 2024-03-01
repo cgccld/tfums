@@ -23,6 +23,16 @@ interface IProposalVote {
     bool executed;
     uint256 numConfirmations;
   }
+  // you can packed this struct like this to optimize
+  // but it look weight :)
+  //
+  // struct Transaction {
+  //   bool executed;             |
+  //   uint88 numConfirmations;   | slot 0
+  //   address to;                |_____
+  //   uint256 value;             |_slot_1_
+  //   bytes data;                |_slot_n_
+  // }
 
   function submitTransaction(address to, uint256 value, bytes memory data) external;
   function confirmTransaction(uint256 transactionId) external;

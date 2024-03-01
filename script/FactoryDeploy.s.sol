@@ -17,29 +17,22 @@ contract FactoryDeploy is Script {
     Factory(factory).deploy(0x0, vm.getCode("Sample.sol:Sample"), 0);
 
     Factory(factory).deploy(
-      bytes32(uint256(0x1)), 
+      bytes32(uint256(0x1)),
       abi.encodePacked(
         type(ERC1967Proxy).creationCode,
-        abi.encode(
-          deployCode("Sample.sol:SampleUUPS", EMPTY_ARGS),
-          abi.encodeCall(
-              SampleUUPS.initialize, ()
-          )
-        )
+        abi.encode(deployCode("Sample.sol:SampleUUPS", EMPTY_ARGS), abi.encodeCall(SampleUUPS.initialize, ()))
       ),
       0
     );
 
     Factory(factory).deploy(
-      bytes32(uint256(0x2)), 
+      bytes32(uint256(0x2)),
       abi.encodePacked(
         type(TransparentUpgradeableProxy).creationCode,
         abi.encode(
           deployCode("Sample.sol:SampleTransparent", EMPTY_ARGS),
           msg.sender,
-          abi.encodeCall(
-              SampleTransparent.initialize, ()
-          )
+          abi.encodeCall(SampleTransparent.initialize, ())
         )
       ),
       0
