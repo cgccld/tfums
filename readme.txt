@@ -1,4 +1,4 @@
-My minimal foundry template.
+i don't know wtf is going on here...
 
 INSTALLATION
 
